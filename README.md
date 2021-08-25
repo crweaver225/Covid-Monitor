@@ -28,3 +28,7 @@ The app will also run when not in use and send you an alert if it thinks you mig
 <p align="center">
   <img src="/Screen_Shots/7.png" width="350"/>
 </p>
+
+A video demo of the app can be found here: https://youtu.be/FoL-Q-pcomY
+
+A demo of the app notifying a user it has detected Covid-19 can be found here: https://youtu.be/oH9bZr6CKjA
