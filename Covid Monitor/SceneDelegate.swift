@@ -11,12 +11,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        var landingViewController: UIViewController
+        
+        if ((UserDefaults.standard.object(forKey: "NotificationPermissions") as? Bool) ?? false) &&
+            ((UserDefaults.standard.object(forKey: "HealthPermissions") as? Bool) ?? false) {
+            
+           landingViewController = CovidResultsViewController()
+            
+        } else {
+            
+            landingViewController = PermissionsViewController()
+            
+        }
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+ 
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = landingViewController
+        window?.makeKeyAndVisible()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -45,6 +61,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        
+        if let rootVC = window?.rootViewController as? CovidResultsViewController {
+            rootVC.animationView?.removeFromSuperview()
+            rootVC.animationView = nil
+        }
     }
 
 

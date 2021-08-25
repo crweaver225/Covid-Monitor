@@ -1,0 +1,28 @@
+PODS:
+  - Pastel (0.6.0)
+  - Stellar (0.67)
+
+DEPENDENCIES:
+  - Pastel
+  - Stellar (from `https://github.com/AugustRush/Stellar.git`)
+
+SPEC REPOS:
+  trunk:
+    - Pastel
+
+EXTERNAL SOURCES:
+  Stellar:
+    :git: https://github.com/AugustRush/Stellar.git
+
+CHECKOUT OPTIONS:
+  Stellar:
+    :commit: 6c192427621f8b52f3b155d0088e1eabd156abe0
+    :git: https://github.com/AugustRush/Stellar.git
+
+SPEC CHECKSUMS:
+  Pastel: 814f081efbe2859c37e65ee44f396e6e5be88619
+  Stellar: df980becd194eeb62d623af097582da0ef2219b9
+
+PODFILE CHECKSUM: aefeb1b092c3aba9d97384756bbe1a20de64a8e5
+
+COCOAPODS: 1.10.1
